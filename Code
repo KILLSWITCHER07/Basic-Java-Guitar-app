@@ -1,0 +1,57 @@
+import java.sql.Array;
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+import static java.lang.System.exit;
+public class Guitar {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("ORGINAL LAYOUT:");
+        for (int i = 0; i < 6; i++) {
+            System.out.println((i + 1)
+                    + ":" + "------------");
+        }
+        String[][] guitar = new String[6][10];
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 10; j++) {
+                guitar[i][j] = "-";
+            }
+        }
+
+        boolean x = true;
+        while(x){
+            System.out.println("Enter The line where you wanna change input ");
+            int line = input.nextInt();
+            System.out.println("Enter the place where you wanna change it: ");
+            int chord = input.nextInt();
+
+
+            guitar[line - 1][chord - 1] = "o";
+            for (int i = 0; i < 6; i++) {
+                System.out.print("\n");
+                for (int j = 0; j < 10; j++) {
+                    System.out.print(guitar[i][j]);
+
+                }
+            }
+            System.out.println("\nDo you want to continue yes/no: ");
+            String a = input.next();
+            if(a.equals("no")){
+                System.out.println("You exited the code");
+                x = false;
+
+            }
+        }
+
+    }
+
+
+
+
+//    public static int addToGrid() {
+//        guitar[line - 1][chord - 1] = "o";
+//    }
+
+}
